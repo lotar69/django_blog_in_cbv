@@ -15,6 +15,10 @@ class BlogPost(models.Model):
     published = models.BooleanField(default=False, verbose_name="Publié")
     content = models.TextField(blank=True, verbose_name="Contenu")
 
+    @property
+    def author_or_default(self):
+        return self.author.username if self.author else "Auteur non renseigné."
+
     class Meta:
         ordering = ["-created_on"]
         verbose_name = "Article"
