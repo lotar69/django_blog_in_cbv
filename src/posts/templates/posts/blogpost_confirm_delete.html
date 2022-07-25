@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <p>Etes vous sur de vouloir supprimer {{ post }} ?</p>
+        <!-- post est indiqué car on a indiqué a context_object_name post dans la vue, autrement on aurait indiqué object -->
+        <input type="submit" value="Oui, Supprimer">
+    </form>
+{% endblock %}
